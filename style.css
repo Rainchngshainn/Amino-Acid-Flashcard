@@ -1,0 +1,166 @@
+/* =========== GLOBAL STYLES & THEME =========== */
+:root {
+  --bg-color: #1a1a2e;
+  --card-color: #16213e;
+  --primary-color: #0f3460;
+  --accent-color: #e94560;
+  --text-color: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--accent-color);
+}
+
+/* =========== COMPONENT STYLES =========== */
+button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #ff637f;
+}
+
+input[type="number"] {
+  background-color: var(--primary-color);
+  border: 2px solid var(--bg-color);
+  color: var(--text-color);
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  width: 120px;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.error {
+  color: var(--accent-color);
+  height: 20px; /* Reserve space to prevent layout shift */
+  font-weight: bold;
+}
+
+/* =========== CARD & FLIP ANIMATION =========== */
+.card-scene {
+  width: 300px;
+  height: 420px;
+  perspective: 1000px; /* This creates the 3D space */
+  margin: 20px auto;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d; /* This makes children exist in 3D space */
+  cursor: pointer;
+}
+
+/* This class will be added by JavaScript to trigger the flip */
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back of the element */
+  background-color: var(--card-color);
+  border-radius: 16px;
+  border: 3px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-back {
+  transform: rotateY(180deg); /* Pre-rotates the back face */
+  justify-content: space-around;
+  text-align: left;
+}
+
+.card-back p {
+  margin: 5px 0;
+  width: 100%;
+}
+
+.card-back img {
+    max-width: 150px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.one-letter {
+  font-size: 150px;
+  font-weight: bold;
+}
+
+
+/* =========== SCREEN SPECIFIC STYLES =========== */
+#study-screen {
+  /* This screen is initially hidden via inline style in HTML */
+  display: none;
+}
+
+#finish-screen {
+  /* This screen is also hidden via inline style */
+  display: none;
+}
+
+#studied-list {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+#next-btn, #return-btn {
+    margin-top: 10px;
+}
+
+.full-name {
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: -10px; /* Pull it closer to the 3-letter code */
+  margin-bottom: 10px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amino Acid Flashcards</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <div id="intro-screen" class="screen">
+      <h1>Amino Acid Flashcards</h1>
+      <p>Enter the number of cards you want to study.</p>
+      <div class="input-group">
+        <input type="number" id="num-cards-input" placeholder="e.g., 30" min="1" max="100">
+        <button id="start-btn">Confirm and Start</button>
+      </div>
+      <p id="error-message" class="error"></p>
+    </div>
+
+    <div id="study-screen" class="screen" style="display: none;">
+      <div class="card-scene">
+        <div id="flashcard" class="card">
+          <div class="card-face card-front">
+            <div id="card-front-content" class="one-letter">A</div>
+          </div>
+          <div class="card-face card-back">
+            <h2 id="card-three-letter">Ala</h2>
+
+            <p id="card-full-name" class="full-name">Alanine</p>
+            
+            <img id="card-image" src="" alt="Amino Acid Structure">
+            <p><strong>Size:</strong> <span id="card-size">Small</span></p>
+            <p><strong>Polarity:</strong> <span id="card-polarity">Nonpolar</span></p>
+            <p><strong>Interactions:</strong> <span id="card-interactions">Van der Waals</span></p>
+          </div>
+        </div>
+      </div>
+      <button id="next-btn">Next Flashcard</button>
+    </div>
+
+    <div id="finish-screen" class="screen" style="display: none;">
+      <h1>Session Complete!</h1>
+      <p>You studied <span id="final-count">0</span> flashcards.</p>
+      <h3>Amino Acids Studied:</h3>
+      <div id="studied-list">
+        </div>
+      <button id="return-btn">Return to Start</button>
+    </div>
+
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
